@@ -53,7 +53,7 @@ router.AddTable([
     "/register",
     "/login",
     "/edit",
-    "task-list"
+    "/task-list"
 ]);
 let route = location.pathname;
 router.ActiveLink = (router.Find(route) > -1) ? (route == "/") ? "home" : route.substring(1) : "404";
