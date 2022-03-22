@@ -44,6 +44,8 @@
             $(this).removeClass("active");
         });
 
+        console.log(document.title)
+
         $(`li>a:contains(${document.title})`).addClass("active"); // updates the Active link on Navigation items
 
         CheckLogin();

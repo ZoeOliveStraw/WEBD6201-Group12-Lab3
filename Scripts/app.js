@@ -20,6 +20,7 @@
         $("ul>li>a").each(function () {
             $(this).removeClass("active");
         });
+        console.log(document.title);
         $(`li>a:contains(${document.title})`).addClass("active");
         CheckLogin();
         LoadContent();
