@@ -1,3 +1,8 @@
+// WEBD6201 - Lab 3 - Group 12
+// Student 1: Zoe Straw - 100303831
+// Student 2: Jacob Kent - 100609784
+// Date: 2022-03-22
+
 // IIFE -- Immediately Invoked Function Expression
 // AKA -- Anonymous Self-Executing Function
 (function()
@@ -5,7 +10,8 @@
     function AuthGuard(): void
     {
         let protected_routes: string[] = [
-            "contact-list"
+            "contact-list",
+            "task-list"
         ];
     
     
@@ -43,6 +49,8 @@
         CheckLogin();
 
         LoadContent();
+
+        
     }
 
     function AddNavigationEvents(): void
@@ -387,9 +395,16 @@
 
     function CheckLogin(): void
     {
+
+        // Hide the task-list link by default
+        $("#task-list").hide();
+
         // if user is logged in
         if(sessionStorage.getItem("user"))
         {
+            // Sow the task-list link
+            $("#task-list").show();
+
             // swap out the login link for logout
             $("#login").html(
                 `<a id="logout" class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>`

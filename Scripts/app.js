@@ -2,7 +2,8 @@
 (function () {
     function AuthGuard() {
         let protected_routes = [
-            "contact-list"
+            "contact-list",
+            "task-list"
         ];
         if (protected_routes.indexOf(router.ActiveLink) > -1) {
             if (!sessionStorage.getItem("user")) {
@@ -218,7 +219,9 @@
         }
     }
     function CheckLogin() {
+        $("#task-list").hide();
         if (sessionStorage.getItem("user")) {
+            $("#task-list").show();
             $("#login").html(`<a id="logout" class="nav-link" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a>`);
             $("#logout").on("click", function () {
                 sessionStorage.clear();
